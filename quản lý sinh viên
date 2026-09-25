@@ -1,0 +1,24 @@
+1. Tất cả học viên
+USE QuanLySinhVien;
+
+SELECT *
+FROM Student;
+2. Học viên đang theo học
+SELECT *
+FROM Student
+WHERE Status = true;
+3. Môn học có thời gian học nhỏ hơn 10 giờ
+SELECT *
+FROM Subject
+WHERE Credit < 10;
+4. Học viên lớp A1
+SELECT S.StudentId, S.StudentName, C.ClassName
+FROM Student S
+JOIN Class C ON S.ClassId = C.ClassID
+WHERE C.ClassName = 'A1';
+5. Điểm môn CF của các học viên
+SELECT S.StudentId, S.StudentName, Sub.SubName, M.Mark
+FROM Student S
+JOIN Mark M ON S.StudentId = M.StudentId
+JOIN Subject Sub ON M.SubId = Sub.SubId
+WHERE Sub.SubName = 'CF';
